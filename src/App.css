@@ -33,6 +33,15 @@ header{
   padding-top: 13px;
 }
 
+.status > p.frw-msg {
+  background-color: #7A5EA7;
+  padding-top: 25px;
+}
+
+.status.lost p{
+  background-color: tomato;
+}
+
 .languages{
   display: flex;
   flex-wrap: wrap;
@@ -43,12 +52,28 @@ header{
 }
 
 .languages span{
+  position: relative;
   border-radius: 5px;
   padding: 4.5px;
   font-weight: 600;
 }
 
-.quess{
+.languages span.lost::before {
+    content: "💀";
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    font-size: 0.85rem;
+    border-radius: 4px;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.guess{
   margin-top: 50px;
   color: #262626;
   max-width: 350px;
@@ -56,7 +81,7 @@ header{
   justify-content: center;
 }
 
-.quess span {
+.guess span {
   background-color: #3d3d3d;
   color: ghostwhite;
   border-radius: 5px;
@@ -68,6 +93,10 @@ header{
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.guess span.not-guessed{
+  color: tomato;
 }
 
 .keyboard{
@@ -90,6 +119,11 @@ header{
   height: 35px;
   text-align: center;
   cursor: pointer;
+}
+
+.keyboard > button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
 }
 
 button.correct{
